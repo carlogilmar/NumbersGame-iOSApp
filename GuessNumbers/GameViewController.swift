@@ -27,12 +27,12 @@ class GameViewController: UIViewController {
         let flipCoin = self.randomNumber(upperBound: 2)
         
         if (flipCoin == 0){
-            self.leftButton.setTitle("\(self.numberToGuess)", for: .normal)
+            self.leftButton.setTitle("\(self.numberToGuess!)", for: .normal)
             self.leftButton.tag = self.numberToGuess!
             self.rightButton.setTitle("\(wrongNumber)", for: .normal)
             self.rightButton.tag = wrongNumber
         } else {
-            self.rightButton.setTitle("\(self.numberToGuess)", for: .normal)
+            self.rightButton.setTitle("\(self.numberToGuess!)", for: .normal)
             self.rightButton.tag = self.numberToGuess!
             self.leftButton.setTitle("\(wrongNumber)", for: .normal)
             self.leftButton.tag = wrongNumber
