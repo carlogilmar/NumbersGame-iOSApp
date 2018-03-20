@@ -56,14 +56,36 @@ class GameViewController: UIViewController {
             self.startButtonDidTap(self.startButton)
         } else {
             self.coins = self.coins - 1
-            self.coinLabel.text = "Coins: \(self.coins)"
-            self.startButtonDidTap(self.startButton)
+            
+            if self.coins == 0 {
+                self.performSegue(withIdentifier: "gameOver", sender: nil)
+            } else {
+                self.coinLabel.text = "Coins: \(self.coins)"
+                self.startButtonDidTap(self.startButton)
+            }
+            
         }
         
     }
     
     @IBAction func rightButtonDidTap(_ sender: UIButton) {
-    
+        
+        if sender.tag == self.numberToGuess {
+            self.score = self.score + 1
+            self.scoreLabel.text = "Score: \(self.score)"
+            self.startButtonDidTap(self.startButton)
+        } else {
+            self.coins = self.coins - 1
+            
+            if self.coins == 0 {
+                self.performSegue(withIdentifier: "gameOver", sender: nil)
+            } else {
+                self.coinLabel.text = "Coins: \(self.coins)"
+                self.startButtonDidTap(self.startButton)
+            }
+            
+        }
+        
     }
     
     override func viewDidLoad() {
