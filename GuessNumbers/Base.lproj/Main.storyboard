@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="df8-Sj-oEH">
             <objects>
-                <viewController id="Yvq-U1-YJI" sceneMemberID="viewController">
+                <viewController id="Yvq-U1-YJI" customClass="GameViewController" customModule="GuessNumbers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dPB-Un-XGO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,6 +41,9 @@
                                 <state key="normal" title="Start 🤓 ">
                                     <color key="titleColor" red="0.96835507813209887" green="0.98140142534696917" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButtonDidTap:" destination="Yvq-U1-YJI" eventType="touchUpInside" id="s18-2a-7EP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5T-6r-4W6">
                                 <rect key="frame" x="40" y="439" width="130" height="60"/>
@@ -52,6 +55,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="?"/>
+                                <connections>
+                                    <action selector="leftButtonDidTap:" destination="Yvq-U1-YJI" eventType="touchUpInside" id="LyB-wJ-0S8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBW-Qj-KFm">
                                 <rect key="frame" x="202" y="439" width="78" height="60"/>
@@ -64,6 +70,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="?"/>
+                                <connections>
+                                    <action selector="rightButtonDidTap:" destination="Yvq-U1-YJI" eventType="touchUpInside" id="hbp-9k-VYR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,6 +90,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4hG-UE-oUx"/>
                     </view>
+                    <connections>
+                        <outlet property="coinLabel" destination="fXP-OO-v01" id="Cmw-cU-rr8"/>
+                        <outlet property="leftButton" destination="h5T-6r-4W6" id="cVF-lR-gty"/>
+                        <outlet property="rightButton" destination="FBW-Qj-KFm" id="3XQ-XE-NtX"/>
+                        <outlet property="scoreLabel" destination="Uhj-uj-k05" id="PWJ-Ok-3YV"/>
+                        <outlet property="startButton" destination="6Gc-aK-Vsp" id="oj1-Th-5lp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8sH-Jm-1xc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
