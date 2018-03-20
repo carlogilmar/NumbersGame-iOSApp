@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameViewController: UIViewController {
 
@@ -16,8 +17,18 @@ class GameViewController: UIViewController {
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     
+    var numberToGuess: Int!
+    
     @IBAction func startButtonDidTap(_ sender: UIButton) {
         
+        self.numberToGuess = self.randomNumber(upperBound: 100)
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .spellOut
+        let numberAsText = numberFormatter.string(for: numberToGuess)
+        let synthesizer = AVSpeechSynthesizer()
+        let utterance = AVSpeechUtterance(string: numberAsText!)
+        synthesizer.speak(utterance)
     }
     
     @IBAction func leftButtonDidTap(_ sender: UIButton) {
@@ -39,6 +50,8 @@ class GameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func randomNumber(upperBound: UInt32) -> Int{
+        return (Int(arc4random_uniform(upperBound)))
+    }
 
 }
