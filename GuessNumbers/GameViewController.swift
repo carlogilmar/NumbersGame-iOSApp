@@ -18,6 +18,8 @@ class GameViewController: UIViewController {
     @IBOutlet weak var rightButton: UIButton!
     
     var numberToGuess: Int!
+    var score: Int = 3
+    var coins: Int = 3
     
     @IBAction func startButtonDidTap(_ sender: UIButton) {
         
@@ -47,7 +49,17 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func leftButtonDidTap(_ sender: UIButton) {
-    
+        
+        if sender.tag == self.numberToGuess {
+            self.score = self.score + 1
+            self.scoreLabel.text = "Score: \(self.score)"
+            self.startButtonDidTap(self.startButton)
+        } else {
+            self.coins = self.coins - 1
+            self.coinLabel.text = "Coins: \(self.coins)"
+            self.startButtonDidTap(self.startButton)
+        }
+        
     }
     
     @IBAction func rightButtonDidTap(_ sender: UIButton) {
